@@ -12,200 +12,171 @@
         body {font-family: 'Montserrat', sans-serif; background:#fff; color:#4b3b2f; line-height: 1.6; overflow-x: hidden;}
         h1, h2, h3, h4, .logo h2 {font-family: 'Cormorant Garamond', serif; font-weight: 700; letter-spacing: 1px;}
         
-        .reveal { opacity: 0; transition: all 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .reveal-up { transform: translateY(40px); }
-        .reveal-fade { transform: scale(0.96); }
-        .reveal.active { opacity: 1; transform: translate(0, 0) scale(1); }
-
-        header {display:flex; justify-content:space-between; align-items:center; padding:20px; max-width: 1200px; margin: 0 auto;}
-        .logo h2 {font-size: 28px; font-family: 'Cormorant Garamond', serif;} 
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            display:flex; justify-content:space-between; align-items:center; 
+            padding:20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1000;
+        }
+        .logo h2 {font-size: 24px; white-space: nowrap;} 
         .logo span {color:#d35400; font-style: italic;}
-        nav ul {list-style:none; display:flex; gap:20px;}
+
+        nav ul {list-style:none; display:flex; gap:20px; align-items: center;}
         nav a {text-decoration:none; color:inherit; font-weight: 600; font-size: 13px; letter-spacing: 1px;}
         nav a:hover, nav a.active {color:#d35400;}
-        
-        .btn-secondary {padding:14px 30px; background:#d35400; color:#fff; border-radius:5px; text-decoration:none; font-weight: 600; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; transition: 0.4s;}
-        .btn-secondary:hover {background: #b34700; transform: translateY(-2px);}
 
+        /* --- HAMBURGER MENU (MOBILE ONLY) --- */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+        .menu-toggle span { width: 25px; height: 3px; background: #4b3b2f; border-radius: 2px; }
+        #nav-check { display: none; }
+
+        /* --- HERO & CONTENT --- */
         .hero {
-            text-align:center; padding:120px 20px; color:white; 
+            text-align:center; padding:100px 20px; color:white; 
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?auto=format&fit=crop&w=1920&q=80'); 
             background-size:cover; background-position: center;
         }
-        .hero h1 {font-size: 4rem; margin-bottom: 10px;}
-
-        .contact-wrapper { max-width: 1200px; margin: 80px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
-        .contact-info-card { background: #1a1a1a; color: white; padding: 40px; border-radius: 12px; height: fit-content;}
-        .contact-info-card h3 { font-size: 2rem; color: #d35400; margin-bottom: 15px; }
+        .contact-wrapper { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+        .contact-form { background: #fdfcfb; padding: 30px; border-radius: 12px; border: 1px solid #eee; }
         
-        .info-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 25px; transition: 0.3s; padding: 10px; border-radius: 8px; }
-        .info-item:hover { background: #222; box-shadow: 0 0 15px rgba(211, 84, 0, 0.4); transform: translateX(5px); }
-        .info-item i { color: #d35400; font-size: 1.2rem; margin-top: 5px; }
-        .info-item a { color: white; text-decoration: none; }
+        /* --- FLOATING ACTION BUTTONS (FAB) --- */
+        .fab-container {
+            position: fixed; bottom: 30px; right: 20px;
+            display: flex; flex-direction: column; gap: 15px; z-index: 999;
+        }
+        .fab {
+            width: 55px; height: 55px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            color: white; text-decoration: none; font-size: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.3s;
+        }
+        .fab-whatsapp { background: #25D366; }
+        .fab-quote { background: #d35400; }
+        .fab:hover { transform: scale(1.1); }
 
-        .contact-form { background: #fdfcfb; padding: 40px; border-radius: 12px; border: 1px solid #eee; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 12px; text-transform: uppercase; color: #4b3b2f; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Montserrat', sans-serif; font-size: 14px; }
-
-        .checkbox-group { display: flex; align-items: center; gap: 10px; margin-top: -10px; margin-bottom: 20px; }
-        .checkbox-group input[type="checkbox"] { width: 18px; height: 18px; accent-color: #d35400; cursor: pointer; }
-        .checkbox-group label { text-transform: none; font-size: 14px; font-weight: 500; cursor: pointer; color: #4b3b2f; }
-
-        .submit-btn { background: #4b3b2f; color: white; border: none; padding: 16px; border-radius: 5px; cursor: pointer; font-weight: 700; width: 100%; transition: 0.3s; letter-spacing: 1px; }
-        .submit-btn:hover { background: #d35400; box-shadow: 0 5px 15px rgba(211, 84, 0, 0.3); }
-
-        /* SUCCESS POPUP STYLES */
+        /* --- SUCCESS POPUP --- */
         .popup-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
-            display: none; justify-content: center; align-items: center;
-            z-index: 9999; backdrop-filter: blur(5px);
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); display: none; justify-content: center; 
+            align-items: center; z-index: 10000; backdrop-filter: blur(5px);
         }
-        .popup-content {
-            background: #fff; padding: 40px; border-radius: 12px; text-align: center;
-            max-width: 450px; width: 90%; transform: scale(0.8); transition: 0.3s;
-            border-bottom: 5px solid #d35400;
-        }
+        .popup-content { background: #fff; padding: 40px; border-radius: 12px; text-align: center; max-width: 400px; width: 90%; }
         .popup-overlay.active { display: flex; }
-        .popup-overlay.active .popup-content { transform: scale(1); }
-        .popup-icon { font-size: 50px; color: #d35400; margin-bottom: 15px; }
 
-        footer { background: #4b3b2f; color: white; padding: 80px 0 30px 0;}
-        .footer-container { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .footer-col h4 { margin-bottom: 20px; font-size: 1.4rem; color: #d35400; }
-        .footer-links { list-style: none; }
-        .footer-links a { color: #ccc; text-decoration: none; transition: 0.3s; font-size: 0.9rem;}
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            
+            nav {
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: white; border-top: 1px solid #eee;
+                max-height: 0; overflow: hidden; transition: 0.3s ease-in-out;
+            }
+            nav ul { flex-direction: column; padding: 20px; gap: 15px; align-items: flex-start; }
+            
+            #nav-check:checked ~ nav { max-height: 400px; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+            
+            .header-btn { display: none; } /* Hide the main button on mobile header */
+            .contact-wrapper { grid-template-columns: 1fr; margin: 30px auto; }
+            .hero h1 { font-size: 2.5rem; }
+        }
 
-        @media (max-width: 900px) { .contact-wrapper { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+        /* Form Styling */
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 11px; text-transform: uppercase; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Montserrat', sans-serif; }
+        .submit-btn { background: #4b3b2f; color: white; border: none; padding: 16px; border-radius: 5px; cursor: pointer; font-weight: 700; width: 100%; transition: 0.3s; }
+        .submit-btn:hover { background: #d35400; }
     </style>
 </head>
 <body>
+
     <header>
-        <div class="logo"><h2>MASIKE <span>MOTION SHUTTLES</span></h2></div>
+        <div class="logo"><h2>MASIKE <span>MOTION</span></h2></div>
+        
+        <input type="checkbox" id="nav-check">
+        <label for="nav-check" class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
         <nav>
             <ul>
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="services.html">SERVICES</a></li>
                 <li><a href="experience.html">EXPERIENCE</a></li>
                 <li><a href="contact.html" class="active">CONTACT</a></li>
+                <li class="mobile-only"><a href="contact.html" style="color:#d35400;">REQUEST QUOTE</a></li>
             </ul>
         </nav>
-        <a href="contact.html" class="btn-secondary">REQUEST QUOTE</a>
+        
+        <a href="contact.html" class="btn-secondary header-btn">REQUEST QUOTE</a>
     </header>
 
     <section class="hero">
-        <h1 class="reveal reveal-fade">Get In Touch</h1>
-        <p class="reveal reveal-fade" style="transition-delay: 0.4s;">Reliable transportation for weekend excursions and cross-border journeys.</p>
+        <h1>Get In Touch</h1>
+        <p>Reliable transportation for your next journey.</p>
     </section>
 
+    <div class="fab-container">
+        <a href="https://wa.me/27716169144" class="fab fab-whatsapp" title="WhatsApp Us">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="#contactForm" class="fab fab-quote" title="Request Quote">
+            <i class="fas fa-file-invoice-dollar"></i>
+        </a>
+    </div>
+
     <div class="contact-wrapper">
-        <div class="contact-info-card reveal reveal-up">
+        <div class="contact-info-card">
             <h3>Contact Details</h3>
             <div class="info-item">
                 <i class="fab fa-whatsapp"></i>
-                <div>
-                    <strong>WhatsApp</strong><br>
-                    <h5>Bruno</h5>
-                    <a href="https://wa.me/27716169144?text=Hello%20Masike%20Motion%2C%20I%20would%20like%20to%20enquire%20about%20your%20services.">+27 716 169 144</a>
-                </div>
+                <div><strong>WhatsApp</strong><br><a href="https://wa.me/27716169144">+27 716 169 144</a></div>
             </div>
             <div class="info-item">
                 <i class="fas fa-envelope"></i>
-                <div>
-                    <strong>Email</strong><br>
-                    <a href="mailto:info@masikemotion.co.za">info@masikemotion.co.za</a>
-                </div>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-clock"></i>
-                <div>
-                    <strong>Availability</strong><br>
-                    <p>24/7 Shuttle Services</p>
-                </div>
+                <div><strong>Email</strong><br><a href="mailto:info@masikemotion.co.za">info@masikemotion.co.za</a></div>
             </div>
         </div>
 
-        <div class="reveal reveal-up" style="transition-delay: 0.3s;">
+        <div id="quote-section">
             <form id="contactForm" class="contact-form">
                 <div class="form-row">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" name="full_name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="tel" name="phone" placeholder="+27..." required>
-                    </div>
+                    <div class="form-group"><label>Full Name</label><input type="text" name="full_name" required></div>
+                    <div class="form-group"><label>Phone</label><input type="tel" name="phone" required></div>
                 </div>
-
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" name="email" placeholder="your.email@example.com" required>
-                </div>
-
+                <div class="form-group"><label>Email</label><input type="email" name="email" required></div>
+                
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Service Type</label>
+                        <label>Service</label>
                         <select name="service_type" required>
-                            <option value="">Select Service</option>
-                            <option value="Local & National">Local & National</option>
+                            <option value="Local">Local & National</option>
                             <option value="Cross-Border">Cross-Border</option>
-                            <option value="Airport Transfer">Airport Transfer</option>
-                            <option value="Guided Drive">Guided Drive</option>
+                            <option value="Airport">Airport Transfer</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label>Passengers</label>
-                        <input type="number" name="passengers" min="1" placeholder="1" required>
-                    </div>
+                    <div class="form-group"><label>Passengers</label><input type="number" name="passengers" min="1" required></div>
                 </div>
 
                 <div class="form-row">
+                    <div class="form-group"><label>Pickup Suburb</label><input type="text" name="pickup_loc" required></div>
+                    <div class="form-group"><label>Drop-off Suburb</label><input type="text" name="drop_off" required></div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group"><label>Date</label><input type="date" name="pickup_date" required></div>
                     <div class="form-group">
-                        <label>Pickup Date</label>
-                        <input type="date" name="pickup_date" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Pickup Time</label>
+                        <label>Time</label>
                         <select name="pickup_time" required>
-                            <option value="">Select Time</option>
                             <option value="08:00">08:00</option>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="11:00">11:00</option>
                             <option value="12:00">12:00</option>
-                            <option value="13:00">13:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="15:00">15:00</option>
                             <option value="16:00">16:00</option>
-                            <option value="17:00">17:00</option>
-                            <option value="18:00">18:00</option>
                         </select>
                     </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Pickup Location (Suburb)</label>
-                        <input type="text" name="pickup_loc" placeholder="Street, Suburb or City" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Drop-off Destination</label>
-                        <input type="text" name="drop_off" placeholder="Street, Suburb or City" required>
-                    </div>
-                </div>
-
-                <div class="checkbox-group">
-                    <input type="checkbox" id="trailer" name="trailer_required">
-                    <label for="trailer">I require a trailer for extra/bulky luggage</label>
-                </div>
-
-                <div class="form-group">
-                    <label>Trip Requirements</label>
-                    <textarea name="requirements" rows="4" placeholder="Specific trip details or special needs..."></textarea>
                 </div>
 
                 <button type="submit" class="submit-btn">SEND REQUEST</button>
@@ -215,100 +186,38 @@
 
     <div id="successPopup" class="popup-overlay">
         <div class="popup-content">
-            <div class="popup-icon"><i class="fas fa-check-circle"></i></div>
-            <h3>Email Prepared!</h3>
-            <p>Your mail application should now open with your quote details. Please hit "Send" in your email app to finish.</p>
-            <button onclick="closePopup()" class="submit-btn">OKAY</button>
+            <i class="fas fa-check-circle" style="font-size: 40px; color: #25D366;"></i>
+            <h3>Email Ready!</h3>
+            <p>Your mail app is opening. Please tap "Send" to complete your request.</p>
+            <button onclick="closePopup()" class="submit-btn" style="margin-top:20px;">OKAY</button>
         </div>
     </div>
 
-    <footer>
-      <div class="footer-container">
-        <div class="footer-col">
-          <div class="footer-logo"><h3>MASIKE MOTION</h3><span style="color:#d35400; font-weight:700; font-size:0.8rem;">SHUTTLE SERVICES</span></div>
-          <p style="margin-top: 15px; font-size: 0.9rem; color: #ccc;">Reliable transportation for weekend excursions.</p>
-        </div>
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact Us</h4>
-          <h5>Bruno</h5>
-          <ul class="footer-links">
-            <li><a href="https://wa.me/27716169144"><i class="fab fa-whatsapp"></i> +27 716 169 144</a></li>
-            <li><a href="mailto:info@masikemotion.co.za"><i class="fas fa-envelope"></i> info@masikemotion.co.za</a></li>
-          </ul>
-        </div>
-      </div>
-    </footer>
-
     <script>
         const contactForm = document.getElementById('contactForm');
-        const successPopup = document.getElementById('successPopup');
-
+        
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // 1. Get all values from the form
             const name = this.elements['full_name'].value;
-            const phone = this.elements['phone'].value;
-            const email = this.elements['email'].value;
-            const service = this.elements['service_type'].value;
-            const passengers = this.elements['passengers'].value;
-            const date = this.elements['pickup_date'].value;
-            const time = this.elements['pickup_time'].value;
-            const pickup = this.elements['pickup_loc'].value;
-            const dropoff = this.elements['drop_off'].value;
-            const trailer = this.elements['trailer_required'].checked ? "Yes" : "No";
-            const requirements = this.elements['requirements'].value;
-
-            // 2. Build the Email Subject and Body
-            const mailToAddress = "info@masikemotion.co.za";
-            const subject = encodeURIComponent("New Shuttle Quote Request - " + name);
-            
             const body = encodeURIComponent(
-                "Hello Masike Motion Team,\n\n" +
-                "I would like to request a shuttle quote with the following details:\n\n" +
-                "--- CLIENT DETAILS ---\n" +
-                "Name: " + name + "\n" +
-                "Phone: " + phone + "\n" +
-                "Email: " + email + "\n\n" +
-                "--- TRIP DETAILS ---\n" +
-                "Service Type: " + service + "\n" +
-                "Passengers: " + passengers + "\n" +
-                "Pickup Date: " + date + "\n" +
-                "Pickup Time: " + time + "\n" +
-                "Pickup Suburb: " + pickup + "\n" +
-                "Drop-off Destination: " + dropoff + "\n" +
-                "Trailer Required: " + trailer + "\n\n" +
-                "--- ADDITIONAL REQUIREMENTS ---\n" +
-                (requirements ? requirements : "None") + "\n\n" +
-                "Please get back to me with a formal quote."
+                `Quote Request from ${name}\n` +
+                `Phone: ${this.elements['phone'].value}\n` +
+                `Service: ${this.elements['service_type'].value}\n` +
+                `Passengers: ${this.elements['passengers'].value}\n` +
+                `Pickup: ${this.elements['pickup_loc'].value}\n` +
+                `Dropoff: ${this.elements['drop_off'].value}\n` +
+                `Date/Time: ${this.elements['pickup_date'].value} at ${this.elements['pickup_time'].value}`
             );
 
-            // 3. Trigger the Gmail/Mail Application
-            window.location.href = "mailto:" + mailToAddress + "?subject=" + subject + "&body=" + body;
-
-            // 4. Show the visual success popup
-            successPopup.classList.add('active');
+            window.location.href = `mailto:info@masikemotion.co.za?subject=New Quote Request&body=${body}`;
+            document.getElementById('successPopup').classList.add('active');
         });
 
         function closePopup() {
-            successPopup.classList.remove('active');
+            document.getElementById('successPopup').classList.remove('active');
             contactForm.reset();
         }
-
-        // Animation logic
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-        window.addEventListener('load', () => { document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('active')); });
     </script>
 </body>
 </html>
