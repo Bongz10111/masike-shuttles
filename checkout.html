@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Masike Motion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <div class="logo-text">
+                    <h2>MASIKE <span>MOTION</span></h2>
+                    <span>PREMIUM TRANSPORT SERVICES</span>
+                </div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="experience.html">EXPERIENCE</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="phone-number">
+                    <i class="fas fa-phone"></i>
+                    <span>0716 169 144</span>
+                </div>
+                <a href="contact.html" class="quote-btn">REQUEST QUOTE</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Checkout Content -->
+    <main class="container checkout-container">
+        <h1 style="font-size: 42px; color: var(--dark-brown); margin-bottom: 20px; text-align: center;">Complete Your Booking</h1>
+        <p style="text-align: center; color: var(--primary-brown); margin-bottom: 40px;">Review your booking details and proceed to payment</p>
+        
+        <!-- Booking Summary -->
+        <div class="booking-summary">
+            <h2 style="color: var(--dark-brown); margin-bottom: 20px;"><i class="fas fa-clipboard-check"></i> Booking Summary</h2>
+            <div id="bookingDetails" class="booking-details">
+                <!-- Booking details will be populated by JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Price Summary -->
+        <div class="price-summary">
+            <h2 style="color: var(--dark-brown); margin-bottom: 20px;"><i class="fas fa-receipt"></i> Price Summary</h2>
+            <div class="price-item">
+                <span>Base Service Fee</span>
+                <span id="basePrice">R 0.00</span>
+            </div>
+            <div class="price-item">
+                <span>Trailer Service</span>
+                <span id="trailerPrice">R 0.00</span>
+            </div>
+            <div class="price-item">
+                <span>Distance Surcharge</span>
+                <span id="distancePrice">R 0.00</span>
+            </div>
+            <div class="price-item">
+                <span>Service Fee</span>
+                <span>R 200.00</span>
+            </div>
+            <div class="total">
+                <span>TOTAL AMOUNT</span>
+                <span id="totalPrice">R 0.00</span>
+            </div>
+        </div>
+        
+        <!-- Payment Information -->
+        <div style="margin: 40px 0; padding: 30px; background: var(--light-cream); border-radius: 8px;">
+            <h3 style="color: var(--dark-brown); margin-bottom: 20px;"><i class="fas fa-lock"></i> Secure Payment</h3>
+            <p style="color: var(--primary-brown); margin-bottom: 20px;">Your payment is secured through PayFast. All transactions are encrypted and secure.</p>
+            
+            <!-- PayFast Payment Form (Simulated) -->
+            <form id="paymentForm" action="https://www.payfast.co.za/eng/process" method="post">
+                <input type="hidden" name="merchant_id" value="YOUR_MERCHANT_ID">
+                <input type="hidden" name="merchant_key" value="YOUR_MERCHANT_KEY">
+                <input type="hidden" name="amount" id="payfastAmount" value="0">
+                <input type="hidden" name="item_name" value="Masike Motion Transportation Service">
+                <input type="hidden" name="return_url" value="http://yourwebsite.com/success.html">
+                <input type="hidden" name="cancel_url" value="http://yourwebsite.com/cancel.html">
+                <input type="hidden" name="notify_url" value="http://yourwebsite.com/notify.php">
+                
+                <div style="margin: 30px 0;">
+                    <button type="submit" class="payfast-btn">
+                        <i class="fas fa-lock"></i> PAY NOW WITH PAYFAST
+                    </button>
+                </div>
+            </form>
+            
+            <p style="color: var(--primary-brown); font-size: 14px; text-align: center;">
+                <i class="fas fa-shield-alt"></i> Secured by PayFast | SSL Encryption | PCI DSS Compliant
+            </p>
+        </div>
+        
+        <!-- Alternative Payment Methods -->
+        <div style="text-align: center; margin-top: 40px;">
+            <p style="color: var(--primary-brown); margin-bottom: 20px;">Alternative payment methods:</p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://wa.me/27716169144" class="btn-secondary" style="padding: 15px 30px;">
+                    <i class="fab fa-whatsapp"></i> Pay via WhatsApp
+                </a>
+                <a href="tel:0716169144" class="btn-secondary" style="padding: 15px 30px;">
+                    <i class="fas fa-phone"></i> Pay via EFT
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="footer-logo-text">
+                            <h3>MASIKE MOTION</h3>
+                            <span>PROFESSIONAL TRANSPORT</span>
+                        </div>
+                    </div>
+                    <p>Professional car and driver services for weekend excursions, long-distance travel, and cross-border journeys. Your solution for reliable transportation needs.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/27716169144"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="tel:0716169144"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="experience.html"><i class="fas fa-chevron-right"></i> Experience</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Weekend Car & Driver</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Long Distance Travel</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Cross-Border Travel</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Trailer Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Details</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:0716169144"><i class="fas fa-phone"></i> Bruno: 0716 169 144</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> 24/7 Service</a></li>
+                        <li><a href="#"><i class="fas fa-calendar-weekend"></i> Weekend Specials</a></li>
+                        <li><a href="#"><i class="fas fa-globe"></i> Nationwide Coverage</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Masike Motion. All rights reserved. | Professional Car & Driver Services</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load booking data from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookingData = JSON.parse(localStorage.getItem('bookingData')) || {};
+            const bookingPrice = parseFloat(localStorage.getItem('bookingPrice')) || 1500;
+            
+            // Update booking details
+            const bookingDetails = document.getElementById('bookingDetails');
+            
+            const details = [
+                { label: 'Name', value: bookingData.name || 'Not provided' },
+                { label: 'Contact', value: bookingData.phone || 'Not provided' },
+                { label: 'Service', value: getServiceName(bookingData.service) },
+                { label: 'Date & Time', value: `${bookingData.date || 'Not set'} at ${bookingData.time || 'Not set'}` },
+                { label: 'Pick-up', value: bookingData.pickup || 'Not provided' },
+                { label: 'Drop-off', value: bookingData.dropoff || 'Not provided' },
+                { label: 'Passengers', value: bookingData.passengers || '1' },
+                { label: 'Trailer', value: bookingData.trailer === 'yes' ? 'Yes' : 'No' }
+            ];
+            
+            bookingDetails.innerHTML = details.map(detail => `
+                <div class="detail-item">
+                    <div class="detail-label">${detail.label}</div>
+                    <div class="detail-value">${detail.value}</div>
+                </div>
+            `).join('');
+            
+            // Update prices
+            const basePrice = bookingPrice - (bookingData.trailer === 'yes' ? 800 : 0);
+            const trailerPrice = bookingData.trailer === 'yes' ? 800 : 0;
+            const distancePrice = bookingData.service === 'long-distance' ? 500 : 
+                                bookingData.service === 'cross-border' ? 1000 : 0;
+            const totalPrice = bookingPrice + distancePrice + 200;
+            
+            document.getElementById('basePrice').textContent = `R ${basePrice.toFixed(2)}`;
+            document.getElementById('trailerPrice').textContent = `R ${trailerPrice.toFixed(2)}`;
+            document.getElementById('distancePrice').textContent = `R ${distancePrice.toFixed(2)}`;
+            document.getElementById('totalPrice').textContent = `R ${totalPrice.toFixed(2)}`;
+            
+            // Update PayFast amount
+            document.getElementById('payfastAmount').value = totalPrice.toFixed(2);
+        });
+        
+        function getServiceName(serviceCode) {
+            const services = {
+                'weekend': 'Weekend Car & Driver',
+                'long-distance': 'Long Distance Travel',
+                'cross-border': 'Cross-Border Travel',
+                'corporate': 'Corporate Transport',
+                'special': 'Special Occasion'
+            };
+            return services[serviceCode] || 'Standard Service';
+        }
+    </script>
+</body>
+</html>

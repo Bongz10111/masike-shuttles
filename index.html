@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masike Motion | Shuttle Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {margin:0; padding:0; box-sizing:border-box;}
+        
+        /* Typography System */
+        body {font-family: 'Montserrat', sans-serif; background:#fff; color:#4b3b2f; line-height: 1.6; overflow-x: hidden;}
+        h1, h2, h3, h4, .logo h2 {font-family: 'Cormorant Garamond', serif; font-weight: 700; letter-spacing: 1px;}
+        
+        /* --- Animation Engine (Slow & Elegant) --- */
+        .reveal {
+            opacity: 0;
+            transition: all 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth, luxury pace */
+        }
+        
+        /* Animation Types */
+        .reveal-up { transform: translateY(40px); }
+        .reveal-left { transform: translateX(-100px); }
+        .reveal-right { transform: translateX(100px); }
+        .reveal-fade { transform: scale(0.96); }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        /* Header */
+        header {display:flex; justify-content:space-between; align-items:center; padding:20px; max-width: 1200px; margin: 0 auto;}
+        .logo h2 {font-size: 28px; font-family: 'Cormorant Garamond', serif;} 
+        .logo span {color:#d35400; font-style: italic;}
+        
+        nav ul {list-style:none; display:flex; gap:20px;}
+        nav a {text-decoration:none; color:inherit; font-weight: 600; font-size: 13px; font-family: 'Montserrat', sans-serif; letter-spacing: 1px;}
+        nav a:hover, nav a.active {color:#d35400;}
+        
+        /* Buttons */
+        .btn-primary, .btn-secondary {padding:14px 30px; border:none; border-radius:5px; cursor:pointer; text-decoration:none; display: inline-block; font-weight: 600; transition: 0.4s; font-family: 'Montserrat', sans-serif; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;}
+        .btn-primary {background:#4b3b2f; color:#fff;}
+        .btn-primary:hover {background: #2c241d; transform: translateY(-2px);}
+        .btn-secondary {background:#d35400; color:#fff;}
+        .btn-secondary:hover {background: #b34700; transform: translateY(-2px);}
+
+        /* Hero Section */
+        .hero {
+            display:flex; flex-direction:column; align-items:center; justify-content:center; 
+            text-align:center; min-height: 90vh; padding:20px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1619441207978-3d326c46e2c9?auto=format&fit=crop&w=1920&q=80'); 
+            background-size:cover; background-position:center; color:#fff;
+        }
+        .hero h1 {font-size: 4.5rem; margin-bottom: 20px; line-height: 1.1;}
+        .hero p {font-size: 1.3rem; max-width: 750px; margin-bottom: 40px; font-weight: 300; letter-spacing: 1px;}
+        
+        .hero-btn-container {
+            display: flex;
+            gap: 20px;
+            overflow: visible;
+        }
+
+        /* Welcome Section */
+        .welcome {padding: 120px 20px 80px; text-align: center; max-width: 950px; margin: 0 auto;}
+        .welcome h2 {font-size: 3.5rem; margin-bottom: 25px; color: #4b3b2f;}
+        .welcome p {font-size: 1.15rem; color: #555;}
+
+        /* Vehicle Fleet Grid */
+        .fleet-section {padding: 60px 20px 120px; background: #fdfcfb;}
+        .fleet-container {max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px;}
+        
+        .vehicle-card {background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.05);}
+        .vehicle-img-wrapper {width: 100%; height: 400px; overflow: hidden;}
+        .vehicle-img {width: 100%; height: 100%; object-fit: cover; transition: 1s ease;}
+        .vehicle-card:hover .vehicle-img {transform: scale(1.05);}
+        .vehicle-info {padding: 40px; text-align: center;}
+        .vehicle-info h3 {font-size: 2.4rem; margin-bottom: 12px; color: #4b3b2f;}
+
+        /* Footer */
+        footer { background: #4b3b2f; color: white; padding: 80px 0 30px 0;}
+        .footer-container { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .footer-logo h3 { font-size: 1.6rem; color: #fff; }
+        .footer-col h4 { margin-bottom: 20px; font-size: 1.4rem; color: #d35400; }
+        .footer-links { list-style: none; }
+        .footer-links a { color: #ccc; text-decoration: none; transition: 0.3s; font-size: 0.9rem;}
+        .footer-links a:hover { color: #d35400; }
+
+        @media (max-width: 768px) {
+            .hero h1 {font-size: 3rem;}
+            .fleet-container {grid-template-columns: 1fr;}
+            .hero-btn-container {flex-direction: column; width: 100%; align-items: center;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo"><h2>MASIKE <span>MOTION SHUTTLES</span></h2></div>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">HOME</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="experience.html">EXPERIENCE</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+    <a href="contact.html" class="btn-secondary">REQUEST QUOTE</a>
+</header>
+
+<section class="hero">
+    <h1 class="reveal reveal-fade">COMFORT, CONVENIENCE <br>& GOOD VIBES</h1>
+    <p class="reveal reveal-fade" style="transition-delay: 0.4s;">Perfect for weekend trips, Family outings, or Cross-border Journeys.</p>
+    
+    <div class="hero-btn-container">
+        <a href="services.html" class="btn-secondary reveal reveal-left" style="transition-delay: 0.8s;">OUR SERVICES</a>
+        <a href="contact.html" class="btn-primary reveal reveal-right" style="transition-delay: 0.8s;">BOOK A RIDE</a>
+    </div>
+</section>
+
+<section class="welcome reveal reveal-up">
+    <h2>Welcome to Masike Motion Shuttles</h2>
+    <p>We provide high-end, reliable transportation tailored to your needs. Whether it's a corporate event, a family getaway, or a trip across the border, our professional drivers ensure you arrive safely and in style.</p>
+</section>
+
+<section class="fleet-section">
+    <div class="fleet-container">
+        <div class="vehicle-card reveal reveal-left">
+            <div class="vehicle-img-wrapper">
+                <img src="images/h1.jpg" alt="Premium SUV" class="vehicle-img">
+            </div>
+            <div class="vehicle-info">
+                <h3>Premium SUV</h3>
+                <p>Spacious, luxurious, and perfect for family trips or long-distance comfort.</p>
+                <a href="contact.html" class="btn-primary" style="margin-top:20px;">INQUIRE NOW</a>
+            </div>
+        </div>
+
+        <div class="vehicle-card reveal reveal-right">
+            <div class="vehicle-img-wrapper">
+                <img src="images/h2.jpg" alt="Luxury People Carrier" class="vehicle-img">
+            </div>
+            <div class="vehicle-info">
+                <h3>Luxury People Carrier</h3>
+                <p>Designed for groups who value style and space. Ideal for cross-border travel.</p>
+                <a href="contact.html" class="btn-primary" style="margin-top:20px;">INQUIRE NOW</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-col">
+      <div class="footer-logo">
+          <h3>MASIKE MOTION</h3>
+          <span style="color:#d35400; font-weight:700; font-size:0.8rem;">SHUTTLES SERVICES</span>
+      </div>
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #ccc;">Reliable transportation for weekend excursions and cross-border journeys.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/27716169144"><i class="fab fa-whatsapp"></i> +27 716 169 144</a></li>
+        <li><a href="mailto:info@masikemotion.co.za"><i class="fas fa-envelope"></i> info@masikemotion.co.za</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+    // Animation Trigger Logic
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    // Apply observer to all elements with 'reveal' class
+    document.querySelectorAll('.reveal').forEach((el) => {
+        observer.observe(el);
+    });
+
+    // Handle Hero section immediately on load
+    window.addEventListener('load', () => {
+        document.querySelectorAll('.hero .reveal').forEach(el => {
+            el.classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>

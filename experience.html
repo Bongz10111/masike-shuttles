@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience | Masike Motion Shuttles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {margin:0; padding:0; box-sizing:border-box;}
+        
+        /* Typography System */
+        body {font-family: 'Montserrat', sans-serif; background:#fff; color:#4b3b2f; line-height: 1.6; overflow-x: hidden;}
+        h1, h2, h3, h4, .logo h2 {font-family: 'Cormorant Garamond', serif; font-weight: 700; letter-spacing: 1px;}
+        
+        /* --- Animation Engine --- */
+        .reveal {
+            opacity: 0;
+            transition: all 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-up { transform: translateY(40px); }
+        .reveal-left { transform: translateX(-100px); }
+        .reveal-right { transform: translateX(100px); }
+        .reveal-fade { transform: scale(0.96); }
+        .reveal.active {
+            opacity: 1;
+            transform: translate(0, 0) scale(1);
+        }
+
+        /* Header (Matched to Index) */
+        header {display:flex; justify-content:space-between; align-items:center; padding:20px; max-width: 1200px; margin: 0 auto;}
+        .logo h2 {font-size: 28px; font-family: 'Cormorant Garamond', serif;} 
+        .logo span {color:#d35400; font-style: italic;}
+        nav ul {list-style:none; display:flex; gap:20px;}
+        nav a {text-decoration:none; color:inherit; font-weight: 600; font-size: 13px; font-family: 'Montserrat', sans-serif; letter-spacing: 1px;}
+        nav a:hover, nav a.active {color:#d35400;}
+        
+        .btn-secondary {padding:14px 30px; background:#d35400; color:#fff; border-radius:5px; text-decoration:none; font-weight: 600; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; transition: 0.4s;}
+        .btn-secondary:hover {background: #b34700; transform: translateY(-2px);}
+
+        /* Hero Section */
+        .hero {
+            text-align:center; padding:120px 20px; color:white; 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486496572940-2bb2341fdbdf?auto=format&fit=crop&w=1920&q=80'); 
+            background-size:cover; background-position: center;
+        }
+        .hero h1 {font-size: 4rem; margin-bottom: 10px;}
+        .hero p {font-size: 1.2rem; font-weight: 300; letter-spacing: 2px; text-transform: uppercase;}
+
+        /* Features Grid */
+        .features-grid {
+            display:grid; 
+            grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); 
+            gap:30px; 
+            padding:100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .feature-card {
+            background:#fdfcfb; 
+            padding:50px 40px; 
+            border-radius:12px; 
+            text-align: center;
+            transition: 0.4s;
+            border: 1px solid #eee;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-color: #d35400;
+        }
+        .feature-icon {font-size:45px; color:#d35400; margin-bottom:20px;}
+        .feature-card h3 {font-size: 2.2rem; margin-bottom: 15px; color: #4b3b2f;}
+        .feature-card p {font-size: 1rem; color: #666;}
+
+        /* Footer (Exact copy of Index.html) */
+        footer { background: #4b3b2f; color: white; padding: 80px 0 30px 0;}
+        .footer-container { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .footer-logo h3 { font-size: 1.6rem; color: #fff; }
+        .footer-col h4 { margin-bottom: 20px; font-size: 1.4rem; color: #d35400; }
+        .footer-links { list-style: none; }
+        .footer-links a { color: #ccc; text-decoration: none; transition: 0.3s; font-size: 0.9rem;}
+        .footer-links a:hover { color: #d35400; }
+
+        @media (max-width: 768px) {
+            .hero h1 {font-size: 2.8rem;}
+            .features-grid {grid-template-columns: 1fr;}
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo"><h2>MASIKE <span>MOTION SHUTTLES</span></h2></div>
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="experience.html" class="active">EXPERIENCE</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+    <a href="contact.html" class="btn-secondary">REQUEST QUOTE</a>
+</header>
+
+<section class="hero">
+    <h1 class="reveal reveal-fade">Our Experience</h1>
+    <p class="reveal reveal-fade" style="transition-delay: 0.4s;">We ready to move when you are.</p>
+</section>
+
+<div class="features-grid">
+    <div class="feature-card reveal reveal-left">
+        <div class="feature-icon"><i class="fas fa-award"></i></div>
+        <h3>Years of Excellence</h3>
+        <p>We've perfected the art of comfortable, safe, and reliable travel through years of dedicated service across South Africa.</p>
+    </div>
+
+    <div class="feature-card reveal reveal-up" style="transition-delay: 0.3s;">
+        <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+        <h3>Professional Team</h3>
+        <p>Our drivers are more than just operators; they are trained individuals focused on getting you to your destination safe and on time.</p>
+    </div>
+
+    <div class="feature-card reveal reveal-right" style="transition-delay: 0.6s;">
+        <div class="feature-icon"><i class="fas fa-car-side"></i></div>
+        <h3>Modern Fleet</h3>
+        <p>Travel in style with our well-maintained vehicles, equipped with modern amenities to ensure your journey is as smooth as possible.</p>
+    </div>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-col">
+      <div class="footer-logo">
+          <h3>MASIKE MOTION</h3>
+          <span style="color:#d35400; font-weight:700; font-size:0.8rem;">PROFESSIONAL SHUTTLES</span>
+      </div>
+      <p style="margin-top: 15px; font-size: 0.9rem; color: #ccc;">Reliable transportation for weekend excursions and cross-border journeys.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/27716169144"><i class="fab fa-whatsapp"></i> +27 716 169 144</a></li>
+        <li><a href="mailto:info@masikemotion.co.za"><i class="fas fa-envelope"></i> info@masikemotion.co.za</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach((el) => {
+        observer.observe(el);
+    });
+
+    window.addEventListener('load', () => {
+        document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('active'));
+    });
+</script>
+
+</body>
+</html>
