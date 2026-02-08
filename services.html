@@ -17,13 +17,32 @@
         .reveal-fade { transform: scale(0.96); }
         .reveal.active { opacity: 1; transform: translate(0, 0) scale(1); }
 
-        header {display:flex; justify-content:space-between; align-items:center; padding:20px; max-width: 1200px; margin: 0 auto;}
+        header {display:flex; justify-content:space-between; align-items:center; padding:20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1000;}
         .logo h2 {font-size: 28px; font-family: 'Cormorant Garamond', serif;} 
         .logo span {color:#d35400; font-style: italic;}
-        nav ul {list-style:none; display:flex; gap:20px;}
+        nav ul {list-style:none; display:flex; gap:20px; align-items: center;}
         nav a {text-decoration:none; color:inherit; font-weight: 600; font-size: 13px; font-family: 'Montserrat', sans-serif; letter-spacing: 1px;}
         nav a:hover, nav a.active {color:#d35400;}
         
+        /* --- MOBILE MENU UPDATES --- */
+        .menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; z-index: 1100; }
+        .menu-toggle span { width: 25px; height: 3px; background: #4b3b2f; border-radius: 2px; }
+        #nav-check { display: none; }
+
+        /* --- FLOATING ACTION BUTTONS --- */
+        .fab-container {
+            position: fixed; bottom: 30px; right: 20px;
+            display: flex; flex-direction: column; gap: 15px; z-index: 999;
+        }
+        .fab {
+            width: 55px; height: 55px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            color: white; text-decoration: none; font-size: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.3s;
+        }
+        .fab-whatsapp { background: #25D366; }
+        .fab-quote { background: #d35400; }
+
         .btn-secondary {padding:14px 30px; background:#d35400; color:#fff; border-radius:5px; text-decoration:none; font-weight: 600; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; transition: 0.4s;}
         .btn-secondary:hover {background: #b34700; transform: translateY(-2px);}
 
@@ -48,11 +67,36 @@
         .footer-links { list-style: none; }
         .footer-links a { color: #ccc; text-decoration: none; transition: 0.3s; font-size: 0.9rem;}
         .footer-links a:hover { color: #d35400; }
+
+        /* --- MOBILE MEDIA QUERIES --- */
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            nav {
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: white; border-top: 1px solid #eee;
+                max-height: 0; overflow: hidden; transition: 0.3s ease-in-out;
+            }
+            nav ul { flex-direction: column; padding: 20px; gap: 15px; align-items: flex-start; }
+            nav a { color: #4b3b2f; font-size: 16px; }
+            #nav-check:checked ~ nav { max-height: 400px; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+            
+            .header-btn { display: none; }
+            .hero h1 { font-size: 3rem; }
+            .container { padding: 60px 20px; }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="logo"><h2>MASIKE <span>MOTION SHUTTLES</span></h2></div>
+        
+        <input type="checkbox" id="nav-check">
+        <label for="nav-check" class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
         <nav>
             <ul>
                 <li><a href="index.html">HOME</a></li>
@@ -61,8 +105,13 @@
                 <li><a href="contact.html">CONTACT</a></li>
             </ul>
         </nav>
-        <a href="contact.html" class="btn-secondary">REQUEST QUOTE</a>
+        <a href="contact.html" class="btn-secondary header-btn">REQUEST QUOTE</a>
     </header>
+
+    <div class="fab-container">
+        <a href="https://wa.me/27716169144" class="fab fab-whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="contact.html" class="fab fab-quote"><i class="fas fa-file-invoice-dollar"></i></a>
+    </div>
 
     <section class="hero">
         <h1 class="reveal reveal-fade">Our Services</h1>
